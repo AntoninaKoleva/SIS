@@ -8,7 +8,6 @@
     <Folder Include="Responses\" />
     <Folder Include="Requests\" />
     <Folder Include="Header\" />
-    <Folder Include="Extensions\" />
   </ItemGroup>
 
 </Project>
