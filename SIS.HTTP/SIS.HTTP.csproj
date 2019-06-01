@@ -9,7 +9,6 @@
     <Folder Include="Requests\" />
     <Folder Include="Header\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Exceptions\" />
   </ItemGroup>
 
 </Project>
