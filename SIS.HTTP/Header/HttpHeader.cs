@@ -4,6 +4,8 @@ namespace SIS.HTTP.Header
 {
     public class HttpHeader
     {
+        public const string ContentType = "Content-Type";
+
         public HttpHeader(string key, string value)
         {
             CoreValidator.ThrowIfNullOrEmpty(key, nameof(key));
