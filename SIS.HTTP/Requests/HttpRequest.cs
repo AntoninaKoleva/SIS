@@ -49,6 +49,11 @@ namespace SIS.HTTP.Requests
             throw new NotImplementedException();
         }
 
+        private bool HasQueryString()
+        {
+            return this.Url.Split('?').Length > 1;
+        }
+
         private IEnumerable<string> ParsePlainRequestHeaders(string[] requestLines)
         {
             for (int i = 1; i < requestLines.Length - 1; i++)
@@ -85,10 +90,17 @@ namespace SIS.HTTP.Requests
 
         private void ParseRequestHeaders(string[] plainHeaders)
         {
-            plainHeaders
-                .Select(ph => ph.Split(new [] { ": "}, StringSplitOptions.RemoveEmptyEntries))
-                .ToList()
-                .ForEach(kvp => this.Headers.AddHeader(new HttpHeader(kvp[0], kvp[1])));
+            foreach (var header in plainHeaders)
+            {
+                var headersKeyValuePair = header.Split(new[] { ": " }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+                this.Headers.AddHeader(new HttpHeader(headersKeyValuePair[0], headersKeyValuePair[1]));
+            }
+
+            //plainHeaders
+            //    .Select(ph => ph.Split(new [] { ": "}, StringSplitOptions.RemoveEmptyEntries))
+            //    .ToList()
+            //    .ForEach(kvp => this.Headers.AddHeader(new HttpHeader(kvp[0], kvp[1])));
         }
 
         //private void ParseCookies()
@@ -98,12 +110,14 @@ namespace SIS.HTTP.Requests
 
         private void ParseRequestQueryParameters()
         {
-            this.Url.Split(new char[] { '?', '#' }, StringSplitOptions.RemoveEmptyEntries)[1]
-                .Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(query => query.Split(new char[] { '='}, StringSplitOptions.RemoveEmptyEntries))
+            if (this.HasQueryString())
+            {
+                this.Url.Split(new char[] { '?', '#' })[1]
+                .Split(new char[] { '&' })
+                .Select(query => query.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries))
                 .ToList()
                 .ForEach(kvp => this.QueryData.Add(kvp[0], kvp[1]));
-                
+            }   
         }
 
         private void ParseRequestFormDataParameters(string requestBody)
