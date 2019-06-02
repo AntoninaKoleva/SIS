@@ -86,7 +86,7 @@ namespace SIS.HTTP.Requests
         private void ParseRequestHeaders(string[] plainHeaders)
         {
             plainHeaders
-                .Select(ph => ph.Split(new char[] { ':'}, StringSplitOptions.RemoveEmptyEntries))
+                .Select(ph => ph.Split(new [] { ": "}, StringSplitOptions.RemoveEmptyEntries))
                 .ToList()
                 .ForEach(kvp => this.Headers.AddHeader(new HttpHeader(kvp[0], kvp[1])));
         }
