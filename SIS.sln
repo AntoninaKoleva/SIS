@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS.HTTP", "SIS.HTTP\SIS.HT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS.WebServer", "SIS.WebServer\SIS.WebServer.csproj", "{A7EF933C-ABC5-40AF-B338-BAD09694402D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{7047F243-E597-4DD7-98FF-3A9E97E58104}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A7EF933C-ABC5-40AF-B338-BAD09694402D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7EF933C-ABC5-40AF-B338-BAD09694402D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7EF933C-ABC5-40AF-B338-BAD09694402D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7047F243-E597-4DD7-98FF-3A9E97E58104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7047F243-E597-4DD7-98FF-3A9E97E58104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7047F243-E597-4DD7-98FF-3A9E97E58104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7047F243-E597-4DD7-98FF-3A9E97E58104}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
